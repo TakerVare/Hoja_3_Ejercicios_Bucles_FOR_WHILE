@@ -8,9 +8,7 @@ public class Ejercicio15 {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Introduce un número entre 1 y 100 que tendremos que adivinar:");
-        iNumeroSecreto =sc.nextInt();
-        sc.nextLine();
+        iNumeroSecreto = (int) (Math.random() * 100) + 1;
 
         System.out.println("Introduce un número:");
         iNumeroIntroducido =sc.nextInt();

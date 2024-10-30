@@ -42,15 +42,15 @@ public class Ejercicio25 {
 
         while ((iHoras>=24) || (iMinutos>=60) || (iSegundos>=60)){
             if(iHoras>=24){
-                iHoras=-24;
+                iHoras=iHoras%24;
             }
             if(iMinutos>=60){
                 iHoras++;
-                iMinutos=-60;
+                iMinutos=iMinutos%60;
             }
             if(iSegundos>=60){
                 iMinutos++;
-                iSegundos=-60;
+                iSegundos=iSegundos%60;
             }
         }
 
