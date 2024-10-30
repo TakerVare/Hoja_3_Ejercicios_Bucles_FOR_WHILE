@@ -1,40 +1,54 @@
 import java.util.Scanner;
 
 public class Ejercicio27 {
-    private static final int ciDistancia = 1500;
-    public static void ejercicio(){
-        double arridMarca[] = new double[2];
-        double dVelocidad;
 
+    public static void ejercicio(){
+        int iPesoIntroducido;
+        int iIndiceArray;
+        int[] arriPesosAlumnos= new int[] {0,0,0,0};
+        int iContadorAlumnos=0;
+        float dPorcentaje=0;
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Introduce los minutos de la marca del atleta:");
-        arridMarca[0]=sc.nextDouble();
+        System.out.println("Introduce el peso del alumno");
+        iPesoIntroducido=sc.nextInt();
         sc.nextLine();
 
-        System.out.println("Introduce los segundos de la marca del atleta:");
-        arridMarca[1]=sc.nextDouble();
-        sc.nextLine();
-        System.out.println();
+        while (iPesoIntroducido!=99){
 
-        do{
-            dVelocidad=(double) (ciDistancia/((arridMarca[0]*60)+arridMarca[1]));
-            System.out.print((int) (arridMarca[0])+" m "+(int) (arridMarca[1])+" s con velocidad media de ");
-            System.out.printf("%.2f m/sg\n", dVelocidad);
+            iIndiceArray=(iPesoIntroducido<40) ? 0 :
+            (iPesoIntroducido>=40 && iPesoIntroducido<=50) ?1 :
+            (iPesoIntroducido>50 && iPesoIntroducido<60)?2 :
+                    3;
+            arriPesosAlumnos[iIndiceArray]++;
+            iContadorAlumnos++;
 
-            System.out.println("Introduce los minutos de la marca del atleta:");
-            arridMarca[0]=sc.nextInt();
+            System.out.println("Introduce el peso del alumno");
+            iPesoIntroducido=sc.nextInt();
             sc.nextLine();
+        }
 
-            System.out.println("Introduce los segundos de la marca del atleta:");
-            arridMarca[1]=sc.nextInt();
-            sc.nextLine();
+        for(int i=0; i<arriPesosAlumnos.length; i++){
+            switch (i){
+                case 0:
+                    System.out.print("Nº de alumnos de menos de 40 kg: "+arriPesosAlumnos[i]+" ");
+                    break;
+                case 1:
+                    System.out.print("Nº de alumnos entre 40 y 50 kg: "+arriPesosAlumnos[i]+" ");
+                    break;
+                case 2:
+                    System.out.print("Nº de alumnos de más de 50 kg y menos de 60 kg: "+arriPesosAlumnos[i]+" ");
+                    break;
+                case 3:
+                    System.out.print("Nº de alumnos de más o igual a 60 kg: "+arriPesosAlumnos[i]+" ");
+                    break;
+            }
+
+            dPorcentaje= (arriPesosAlumnos[i]>0) ? ((float) (arriPesosAlumnos[i]*100)/iContadorAlumnos) : 0;
+
+            System.out.printf("%.2f %%\n", dPorcentaje);
             System.out.println();
-
-
-        }while (arridMarca[0]!=0 && arridMarca[1]!=0);
-
-
+        }
 
         sc.close();
     }

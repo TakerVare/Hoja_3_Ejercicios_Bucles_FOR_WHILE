@@ -91,6 +91,9 @@ public class Main {
             case 26:
                 Ejercicio26.ejercicio();
                 break;
+            case 27:
+                Ejercicio27.ejercicio();
+                break;
             case 31:
                 EjemplosClase.ejercicio();
                 break;
