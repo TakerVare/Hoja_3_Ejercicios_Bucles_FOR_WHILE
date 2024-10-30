@@ -82,6 +82,12 @@ public class Main {
             case 23:
                 Ejercicio23.ejercicio();
                 break;
+            case 24:
+                Ejercicio24.ejercicio();
+                break;
+            case 25:
+                Ejercicio25.ejercicio();
+                break;
             case 31:
                 EjemplosClase.ejercicio();
                 break;
